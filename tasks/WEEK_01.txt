@@ -1,0 +1,73 @@
+================================================================
+ AMCS — WEEK 1 TASKS
+ Phase 1: Simulation Core (Week 1/4)
+ Goal: Rust basics + a deterministic tick loop running one train.
+================================================================
+
+Each task = a goal + concepts to learn. No solutions given.
+Research the "how" yourself. Struggle is the point.
+
+
+----------------------------------------------------------------
+## A — SETUP
+----------------------------------------------------------------
+[ ] Working Rust toolchain on Linux (WSL2). Editor with rust-analyzer.
+[ ] GitHub repo "amcs" with a runnable empty project.
+
+Learn: rustup vs cargo (what does each do?), why Linux target.
+
+
+----------------------------------------------------------------
+## B — RUST BASICS
+----------------------------------------------------------------
+[ ] Model a Train: its data + its possible states.
+[ ] Give the train one behavior: advance its position over a time step.
+[ ] Make behavior depend on state.
+
+Learn: ownership & borrowing, structs, enums, match, Option.
+Focus: ownership. Spend real time here. Everything later depends on it.
+
+
+----------------------------------------------------------------
+## C — DETERMINISTIC SIM LOOP
+----------------------------------------------------------------
+[ ] Build a loop that advances the whole world one step at a time.
+[ ] Run it for N steps, print the train's state each step.
+[ ] Prove it: two runs must produce byte-identical output.
+
+Learn: fixed-timestep vs real-time simulation. Why wall-clock time
+and randomness break determinism. What "tick" means.
+
+
+----------------------------------------------------------------
+## D — HABITS
+----------------------------------------------------------------
+[ ] Formatter + linter clean before every commit.
+[ ] At least one automated test proving the train moves correctly.
+[ ] DEVLOG.md — a few lines daily: learned / broke / next.
+[ ] Small daily commits.
+
+
+----------------------------------------------------------------
+## DONE CRITERIA
+----------------------------------------------------------------
+[ ] Can explain ownership in your own words.
+[ ] Train = struct + state enum, behavior via match.
+[ ] Fixed-step loop runs; two runs -> identical output.
+[ ] One test passes, linter clean.
+[ ] Daily commits + DEVLOG on GitHub.
+
+All checked -> Week 2 (multiple trains + collision).
+
+
+----------------------------------------------------------------
+## DON'T
+----------------------------------------------------------------
+- No async, traits, generics, networking, DB, React yet.
+- No "generic engine" abstraction. Just move one train.
+- Write code, don't binge tutorials.
+- Don't skip ownership.
+
+================================================================
+ Estimated time: 10-15 hours.
+================================================================
