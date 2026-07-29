@@ -11,8 +11,8 @@ Research the "how" yourself. Struggle is the point.
 ----------------------------------------------------------------
 ## A — SETUP
 ----------------------------------------------------------------
-[ ] Working Rust toolchain on Linux (WSL2). Editor with rust-analyzer.
-[ ] GitHub repo "amcs" with a runnable empty project.
+[x] Working Rust toolchain on Linux. Editor with rust-analyzer.
+[x] GitHub repo "amcs" with a runnable empty project.
 
 Learn: rustup vs cargo (what does each do?), why Linux target.
 
@@ -20,9 +20,9 @@ Learn: rustup vs cargo (what does each do?), why Linux target.
 ----------------------------------------------------------------
 ## B — RUST BASICS
 ----------------------------------------------------------------
-[ ] Model a Train: its data + its possible states.
-[ ] Give the train one behavior: advance its position over a time step.
-[ ] Make behavior depend on state.
+[x] Model a Train: its data + its possible states.
+[x] Give the train one behavior: advance its position over a time step.
+[x] Make behavior depend on state.
 
 Learn: ownership & borrowing, structs, enums, match, Option.
 Focus: ownership. Spend real time here. Everything later depends on it.
@@ -31,9 +31,9 @@ Focus: ownership. Spend real time here. Everything later depends on it.
 ----------------------------------------------------------------
 ## C — DETERMINISTIC SIM LOOP
 ----------------------------------------------------------------
-[ ] Build a loop that advances the whole world one step at a time.
-[ ] Run it for N steps, print the train's state each step.
-[ ] Prove it: two runs must produce byte-identical output.
+[x] Build a loop that advances the whole world one step at a time.
+[x] Run it for N steps, print the train's state each step.
+[x] Prove it: two runs must produce byte-identical output.
 
 Learn: fixed-timestep vs real-time simulation. Why wall-clock time
 and randomness break determinism. What "tick" means.
@@ -42,20 +42,20 @@ and randomness break determinism. What "tick" means.
 ----------------------------------------------------------------
 ## D — HABITS
 ----------------------------------------------------------------
-[ ] Formatter + linter clean before every commit.
-[ ] At least one automated test proving the train moves correctly.
-[ ] DEVLOG.md — a few lines daily: learned / broke / next.
-[ ] Small daily commits.
+[x] Formatter + linter clean before every commit.
+[x] At least one automated test proving the train moves correctly.
+[x] DEVLOG.md — a few lines daily: learned / broke / next.
+[x] Small daily commits.
 
 
 ----------------------------------------------------------------
 ## DONE CRITERIA
 ----------------------------------------------------------------
-[ ] Can explain ownership in your own words.
-[ ] Train = struct + state enum, behavior via match.
-[ ] Fixed-step loop runs; two runs -> identical output.
-[ ] One test passes, linter clean.
-[ ] Daily commits + DEVLOG on GitHub.
+[x] Can explain ownership in your own words.
+[x] Train = struct + state enum, behavior via match.
+[x] Fixed-step loop runs; two runs -> identical output.
+[x] One test passes, linter clean.
+[x] Daily commits + DEVLOG on GitHub.
 
 All checked -> Week 2 (multiple trains + collision).
 
