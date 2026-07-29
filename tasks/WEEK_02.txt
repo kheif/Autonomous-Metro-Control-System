@@ -1,0 +1,110 @@
+================================================================
+ AMCS — WEEK 2 TASKS
+ Phase 1: Simulation Core (Week 2/4)
+ Goal: Many trains on one line. Detect collisions. Keep it
+       deterministic. Meet the borrow checker for real.
+================================================================
+
+Each task = a goal + concepts to learn. No solutions given.
+Research the "how" yourself. Struggle is the point.
+
+Week 1 gave you ONE train that moves. Week 2 is the first time
+an engineering problem forces a new component: put two trains on
+the same track and the question "are they about to hit?" appears
+on its own. Build only what that question needs.
+
+
+----------------------------------------------------------------
+## A — MANY TRAINS
+----------------------------------------------------------------
+[ ] Hold N trains in the world instead of one local variable.
+[ ] Advance every train one tick, each step, in the loop.
+[ ] Give each train an identity so logs/tests can name it.
+[ ] Print all trains' state each tick, readably.
+
+Learn: Vec<T>, iterating (for, iter, iter_mut), what &mut over a
+collection lets you do. Why a HashMap here would quietly break
+determinism (iteration order) unless you sort.
+Focus: keep the update order fixed and explicit. Same order,
+every run.
+
+
+----------------------------------------------------------------
+## B — DISTANCE & SEPARATION
+----------------------------------------------------------------
+[ ] Put all trains on one shared 1D line so "distance between
+    two trains" is a meaningful number.
+[ ] Compute the gap between any two trains (and to the one ahead).
+[ ] Decide what "too close" means: a minimum safe separation.
+    Write down WHY you picked that number.
+
+Learn: modelling a shared coordinate space. The difference
+between position, gap, and "safe following distance". Why safe
+separation isn't constant in real life (hint: speed & braking) —
+you don't have to solve that yet, just notice it.
+
+
+----------------------------------------------------------------
+## C — COLLISION DETECTION & RESPONSE
+----------------------------------------------------------------
+[ ] Write a check that scans the world and reports every pair of
+    trains closer than the safe separation (or overlapping).
+[ ] THE OWNERSHIP WALL: to compare train A against train B you
+    need to look at two elements of the same Vec at once. The
+    borrow checker will stop you. Understand exactly why, then
+    get past it the RIGHT way.
+[ ] Give the system one honest reaction: when a train's path is
+    unsafe, put it into Emergency. Detection first, reaction second.
+[ ] Prove it: build a scenario that WOULD collide (fast train
+    closing on a stopped one). Show the check fires before impact.
+
+Learn: why you cannot hold two &mut into one Vec. The legit ways
+out — indices, split_at_mut, or reading positions into a snapshot
+first — and the trade-offs of each.
+Focus: this task IS the week. Do NOT escape with Rc/RefCell or by
+cloning everything. Learn the borrow checker, don't bribe it.
+
+
+----------------------------------------------------------------
+## D — HABITS
+----------------------------------------------------------------
+[ ] Formatter + linter clean before every commit.
+[ ] A test that two trains on a collision course are FLAGGED.
+[ ] A test that two safely-separated trains are NOT flagged.
+[ ] A test proving multi-train runs are still deterministic
+    (two runs -> byte-identical output).
+[ ] DEVLOG.md — daily: learned / broke / next.
+[ ] Small daily commits.
+
+
+----------------------------------------------------------------
+## DONE CRITERIA
+----------------------------------------------------------------
+[ ] World holds N trains; all advance each tick in fixed order.
+[ ] Gap between trains is computable; safe separation is defined
+    and justified in writing.
+[ ] Collision check finds every unsafe pair; you can explain how
+    you solved the two-&mut problem in your own words.
+[ ] Unsafe train transitions to Emergency.
+[ ] Collision + no-collision + determinism tests pass, linter clean.
+[ ] Daily commits + DEVLOG on GitHub.
+
+All checked -> Week 3 (a real track layout: blocks & signals).
+
+
+----------------------------------------------------------------
+## DON'T
+----------------------------------------------------------------
+- No signals, switches, blocks, routes or pathfinding yet.
+  That's Phase 2. This week is bare positions on one line.
+- No async, traits, generics, networking, DB, React.
+- No "generic engine" / ECS abstraction. Just a Vec of trains.
+- No HashMap for the train list (nondeterministic order) unless
+  you deliberately sort and can say why.
+- Don't reach for Rc<RefCell<>> or clone-everything to dodge the
+  borrow checker. That's the lesson, not the obstacle.
+- Don't build a full "safety layer" yet — one reaction is enough.
+
+================================================================
+ Estimated time: 10-15 hours.
+================================================================
